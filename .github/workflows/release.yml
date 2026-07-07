@@ -1,0 +1,35 @@
+name: release
+
+# pushing a tag like v0.1.0 builds the binary and publishes a GitHub Release
+# with auto-generated notes and the zipped exe attached.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Test
+        run: go test ./...
+
+      - name: Build
+        run: go build -trimpath -ldflags "-s -w" -o pmux.exe ./cmd/pmux
+
+      - name: Package
+        run: Compress-Archive -Path pmux.exe, README.md -DestinationPath pmux-${{ github.ref_name }}-windows-amd64.zip
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pmux-*.zip
+          generate_release_notes: true

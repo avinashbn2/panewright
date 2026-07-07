@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Test
+        run: go test ./...
+
+      - name: Build
+        run: go build -trimpath -o pmux.exe ./cmd/pmux
+
+      # every push to main gets a downloadable binary under the run's Artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pmux-windows-amd64
+          path: pmux.exe
