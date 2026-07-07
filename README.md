@@ -22,10 +22,12 @@ If you know tmux, you already know pmux: `Ctrl-B c` opens a window, `Ctrl-B %`
 splits, `Ctrl-B d` detaches, `pmux attach` picks your shells back up right
 where they were.
 
-![pmux running three panes in Windows Terminal](docs/screenshot.png)
+![pmux demo: a dev server keeps serving while detached](docs/demo.gif)
 
-*Three panes in one pmux window (running in Windows Terminal, with the
-"harbor" theme from [Theming](#theming)).*
+*The demo: start a dev server in a pane, split, work — then **detach**. The
+window is gone, but the server keeps serving (watch its log after
+reattaching: two requests arrived while no terminal existed). `pmux attach`
+brings everything back.*
 
 ## Features
 
@@ -229,7 +231,10 @@ Format strings expand:
   `#F` flags, `#P` pane index, `#T` pane title, `#H` host
 - **Clock** — strftime codes like `%H:%M`, `%d-%b-%y`
 
-A complete theme, ready to paste into `~\.pmux.conf`:
+A complete theme, ready to paste into `~\.pmux.conf` (this is the look used
+in the screenshots — cyan session badge, yellow current-window pill):
+
+![the harbor theme](docs/screenshot.png)
 
 ```tmux
 ##### pmux theme: "harbor" — a cool truecolor look ##########################
