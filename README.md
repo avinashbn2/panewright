@@ -22,6 +22,11 @@ If you know tmux, you already know pmux: `Ctrl-B c` opens a window, `Ctrl-B %`
 splits, `Ctrl-B d` detaches, `pmux attach` picks your shells back up right
 where they were.
 
+![pmux running three panes in Windows Terminal](docs/screenshot.png)
+
+*Three panes in one pmux window (running in Windows Terminal, with the
+"harbor" theme from [Theming](#theming)).*
+
 ## Features
 
 - **Detach & reattach** — tmux's client/server split. Your shells live in a
