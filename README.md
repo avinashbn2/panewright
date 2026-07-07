@@ -1,7 +1,7 @@
 # panewright — tmux for Windows
 
-[![build](https://github.com/avinashbn2/panewright/actions/workflows/ci.yml/badge.svg)](https://github.com/avinashbn2/panewright/actions/workflows/ci.yml)
 [![release](https://img.shields.io/github/v/release/avinashbn2/panewright?include_prereleases)](https://github.com/avinashbn2/panewright/releases)
+[![license](https://img.shields.io/github/license/avinashbn2/panewright)](LICENSE)
 ![go](https://img.shields.io/badge/Go-1.26-00ADD8?logo=go&logoColor=white)
 ![platform](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D4)
 
